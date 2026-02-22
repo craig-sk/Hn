@@ -1,0 +1,48 @@
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply scroll-smooth; }
+  body { @apply font-sans bg-gray-50 text-gray-900 antialiased; }
+  * { @apply box-border; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-600 transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700 focus:ring-2 focus:ring-brand-500 focus:ring-offset-2; }
+  .btn-secondary { @apply btn bg-white text-gray-700 border border-gray-200 hover:bg-gray-50; }
+  .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700; }
+  .btn-ghost { @apply btn text-gray-600 hover:bg-gray-100; }
+
+  .input { @apply w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-800 placeholder-gray-400 outline-none transition-colors focus:border-brand-400 focus:bg-white; }
+  .label { @apply block text-xs font-600 text-gray-600 mb-1.5 tracking-wide uppercase; }
+
+  .card { @apply bg-white rounded-xl border border-gray-200 shadow-card; }
+  .card-body { @apply p-5; }
+
+  .badge { @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-600; }
+  .badge-blue   { @apply badge bg-blue-50 text-blue-700; }
+  .badge-green  { @apply badge bg-emerald-50 text-emerald-700; }
+  .badge-amber  { @apply badge bg-amber-50 text-amber-700; }
+  .badge-red    { @apply badge bg-red-50 text-red-700; }
+  .badge-purple { @apply badge bg-purple-50 text-purple-700; }
+  .badge-gray   { @apply badge bg-gray-100 text-gray-600; }
+
+  .sidebar-link { @apply flex items-center gap-3 px-4 py-2.5 w-full text-left text-sm font-500 text-slate-400 rounded-lg transition-all hover:bg-white/5 hover:text-white relative; }
+  .sidebar-link.active { @apply text-blue-300 bg-blue-500/10; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Chat bubble animation */
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.msg-animate { animation: msgIn 0.25s ease forwards; }
